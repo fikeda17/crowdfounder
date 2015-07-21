@@ -16,10 +16,10 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(product_params)
+    @project = Project.new(project_params)
 
     if @project.save
-      redirect_to project_url
+      redirect_to projects_url
     else
       render :new
     end
@@ -31,6 +31,7 @@ class ProjectsController < ApplicationController
       redirect_to project_path(@project)
     else
       render :edit
+    end
   end
 
   def destroy
