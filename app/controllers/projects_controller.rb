@@ -9,6 +9,10 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @project.rewards << Reward.new
+    @project.rewards << Reward.new
+    @project.rewards << Reward.new
+    @project.rewards << Reward.new
   end
 
   def edit

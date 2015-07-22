@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'rewards/index'
+
+  get 'rewards/new'
+
+  get 'rewards/show'
+
+  get 'rewards/create'
+
+  get 'pledges/create'
+
   get 'sessions/new'
 
   get 'sessions/create'
