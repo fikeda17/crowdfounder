@@ -28,7 +28,7 @@
 
 <div class="field">
   <%= f.label :start_date %><br>
-  <%= select_date(Date.today) %>
+  <%= select_date(Date.today, options = {:min=> @todayvariable})  %>
 </div>
 
 <div class="field">
