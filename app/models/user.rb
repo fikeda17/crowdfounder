@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
   has_many :owned_projects, class_name: 'Project' #project creation
   has_many :pledges 
   has_many :rewards
-  has_many :backed_projects, through :pledges, class_name 'Project' #project backing 
+  has_many :backed_projects, through: :pledges, class_name: 'Project' #project backing 
 end
