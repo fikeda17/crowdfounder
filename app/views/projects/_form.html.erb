@@ -43,8 +43,7 @@
 
 <h2> REWARDS!! </h2>
  
-<% @project.rewards.each do |reward| %>
-<%= f.fields_for :rewards, reward do |reward_fields| %>
+<%= f.fields_for :rewards do |reward_fields| %>
   <div class="field">
     <%= reward_fields.label :name%><br>
     <%= reward_fields.text_field :name %>
@@ -60,7 +59,7 @@
     <%= reward_fields.number_field :amount %>
   </div>
 <% end %>
-<% end %>
+
 
 <div class="actions">
   <%= f.submit %>

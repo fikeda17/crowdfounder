@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+  def show
+    unless current_user && current_user.id == params[:id].to_i
+      redirect_to :root, :error => 'Cannot view other pledges'
+    end
+      @user = current_user
+  end
+
   def new
     @user = User.new
   end
