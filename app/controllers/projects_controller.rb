@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    #  you can just in the view say <% = review.each %>
   end
 
   def new
