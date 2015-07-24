@@ -1,0 +1,15 @@
+<h1> My Profile </h1>
+<ul>
+  <%= @user.first_name %> <%= @user.last_name %>
+</ul>
+<div class="pledges_backed">
+  <% @users.backed_projects.each do |backed_project| %>
+
+  <% end %>
+</div>
+<div class="projects_owned">
+  <% @users.owned_projects.each do |owned_project| %>
+
+  <% end %>
+</div>
+

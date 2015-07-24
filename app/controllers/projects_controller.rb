@@ -1,15 +1,19 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    @projects = Project.order(end_date: :desc)
   end
 
   def show
     @project = Project.find(params[:id])
-    #  you can just in the view say <% = review.each %>
+    @reward = @project.rewards.build
   end
 
   def new
     @project = Project.new
+    @project.rewards << Reward.new
+    @project.rewards << Reward.new
+    @project.rewards << Reward.new
+    @project.rewards << Reward.new
   end
 
   def edit
@@ -43,6 +47,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :funding_goal, :start_date, :end_date, :photo)
+    params.require(:project).permit(:name, :description, :funding_goal, :start_date, :end_date, :photo, rewards_attributes: [:name, :description, :amount])
   end
 end

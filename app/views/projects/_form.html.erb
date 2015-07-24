@@ -41,6 +41,28 @@
   <%= f.text_field :photo %>
 </div>
 
+<h2> REWARDS!! </h2>
+ 
+<%= f.fields_for :rewards do |reward_fields| %>
+  <div class="field">
+    <%= reward_fields.label :name%><br>
+    <%= reward_fields.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= reward_fields.label :description %><br>
+    <%= reward_fields.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= reward_fields.label :amount %><br>
+    <%= reward_fields.number_field :amount %>
+  </div>
+<% end %>
+
+
+
+
 <div class="actions">
   <%= f.submit %>
 </div>
