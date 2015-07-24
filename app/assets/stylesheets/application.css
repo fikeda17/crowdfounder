@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background-color: #b0c4de;
+}
+
+h1 {
+  text-align: center;
+}
+
+.rewards{
+  width: 100px; 
+  height: 100px;
+  background-color: #FF7F50;
+  margin: 20px;
+  float: left;
+}
+
+.rewards_box{
+  text-align: center;
+  margin: 0 auto;
+  background-color: green;
+  width: 600px;
+}

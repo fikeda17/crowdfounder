@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Seat Yourself</title>
+  <title>Crowdfounder</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1><%= link_to "Crowdfounder", root_path %></h1>
-  <nav>
-    <ul>
-      <li><%= link_to "Projects", projects_path %></li>
-      <% if current_user %>
-        <li><%= link_to "My Profile", current_user %></li>
-      <% end %>
-    </ul>
-  </nav>
+
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <h1><%= link_to "Crowdfounder", root_path %></h1>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Projects", projects_path %></li>
+              <% if current_user %>
+              <li><%= link_to "My Profile", current_user %></li>
+              <% end %>
+          </ul>
+        </nav>
+    </div>
+  </header>
 
   <section id="login">
     <ul>

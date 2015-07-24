@@ -1,2 +1,19 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<h1><%= @project.name %> </h1>
+
+<div class="description">
+<%= @project.description %> <br>
+<%= @project.funding_goal %> <br>
+<%= @project.start_date %> <br>
+<%= @project.end_date %><br>
+<%= image_tag @project.photo %><br>
+</div>
+
+<div class="rewards_box">
+<% @project.rewards.each do |reward| %>
+<div class="rewards">
+<%= reward.name %> <br>
+<%= reward.description %> <br>
+<%= reward.amount %> <br>
+</div>
+<% end %>
+</div>

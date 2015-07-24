@@ -28,12 +28,12 @@
 
 <div class="field">
   <%= f.label :start_date %><br>
-  <%= select_date(Date.today, options = {:min=> @todayvariable})  %>
+  <%= f.date_select :start_date  %>
 </div>
 
 <div class="field">
   <%= f.label :end_date %><br>
-  <%= select_date(Date.today) %>
+  <%= f.date_select :end_date %>
 </div>
 
 <div class="field">
@@ -59,6 +59,8 @@
     <%= reward_fields.number_field :amount %>
   </div>
 <% end %>
+
+
 
 
 <div class="actions">
