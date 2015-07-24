@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   validates :last_name, presence: :true
   validates :email, :uniqueness => true
 
-  has_many :owned_projects, class_name: 'Project' #project creation
+  has_many :owned_projects, class_name: 'Project', source: :owner #project creation
   has_many :pledges 
   has_many :rewards
-  has_many :backed_projects, through: :pledges, class_name: 'Project' #project backing 
+  has_many :backed_projects, through: :pledges, class_name: 'Project', source: :project
 end

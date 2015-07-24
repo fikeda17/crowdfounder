@@ -1,6 +1,5 @@
 
 <h1>Project</h1>
-<%= @project.time_left %> days
 <h1><%= @project.name %> </h1>
 
 <div class="description">
@@ -11,12 +10,17 @@
 <%= image_tag @project.photo %><br>
 </div>
 
+
+
 <div class="rewards_box">
-<% @project.rewards.each do |reward| %>
-<div class="rewards">
-<%= reward.name %> <br>
-<%= reward.description %> <br>
-<%= reward.amount %> <br>
-</div>
+<% @project.rewards.each do |reward| %>	
+	<div class="rewards">
+		<%= reward.name %> <br>
+		<%= reward.description %> <br>
+		<%= reward.amount %> <br>
+		<%= form_for [@project, reward, Pledge.new(:reward_id => reward.id)] do |f| %>
+			<%= f.submit :Pledge! %>
+		<% end %>
+	</div>
 <% end %>
 </div>

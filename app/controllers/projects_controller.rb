@@ -5,7 +5,6 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @reward = @project.rewards.build
   end
 
   def new
