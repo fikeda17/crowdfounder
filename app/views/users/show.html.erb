@@ -1,14 +1,31 @@
 <h1> My Profile </h1>
+
 <ul>
   <%= @user.first_name %> <%= @user.last_name %>
 </ul>
 
-<% current_user.backed_projects.each do |project| %>
-	<%= project.name %>
+
+<% sum = 0%>
+
+<h2> PLEDGES </h2>
+<% @pledge.each do |p| %>
+	<% @reward = Reward.where("id = :r", {r: p.reward_id})  %>
+		<% @reward.each do |r| %>
+		 <% @project = Project.where("id = :pr", {pr: r.project_id})  %>
+		 <% @project.each do |project| %>
+			<%= project.name %>
+			<%= r.name %>
+			<%= r.amount %>  <br>
+			<% sum += r.amount %>
+		<% end %>	
+	<% end %>
 <% end %>
 
-<div class="projects_owned">
+<p> Total: </p><%= sum %>
 
+
+
+<div class="projects_owned">
 </div>
 
 

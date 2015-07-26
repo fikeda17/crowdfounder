@@ -1,13 +1,21 @@
-
 <h1>Project</h1>
 <h1><%= @project.name %> </h1>
 
+<p>
+<% sum = 0 %>
+	<% @reward.each do |r| %>
+		<% @pledge = Pledge.where("reward_id = :rid", {rid: r.id}) %>
+		<% sum += r.amount %>
+	<% end %>
+<%= sum %>	
+</p>
+
 <div class="description">
-<%= @project.description %> <br>
-<%= @project.funding_goal %> <br>
-<%= @project.start_date %> <br>
-<%= @project.end_date %><br>
-<%= image_tag @project.photo %><br>
+	<%= @project.description %> <br>
+	<%= @project.funding_goal %> <br>
+	<%= @project.start_date %> <br>
+	<%= @project.end_date %><br>
+	<%= image_tag @project.photo %><br>
 </div>
 
 
@@ -18,7 +26,7 @@
 		<%= reward.name %> <br>
 		<%= reward.description %> <br>
 		<%= reward.amount %> <br>
-		<%= form_for [@project, reward, Pledge.new(:reward_id => reward.id)] do |f| %>
+		<%= form_for [@project, reward, Pledge.new(reward_id: reward.id)] do |f| %>
 			<%= f.submit :Pledge! %>
 		<% end %>
 	</div>

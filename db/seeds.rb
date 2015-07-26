@@ -16,4 +16,4 @@ reward3 = Reward.create(name: "gold", description: "fragile", amount: 50, projec
 reward4 = Reward.create(name: "platinum", description: "fragile", amount: 50, project_id: 1)
 
 
-pledge1 = Pledge.create(amount: 50, reward_id: reward1.id, user_id: User.first.id)
+pledge1 = Pledge.create(reward_id: reward1.id, user_id: User.first.id)
