@@ -1,14 +1,18 @@
 <h1>Project</h1>
 <h1><%= @project.name %> </h1>
 
-<p>
+<div>
 <% sum = 0 %>
 	<% @reward.each do |r| %>
-		<% @pledge = Pledge.where("reward_id = :rid", {rid: r.id}) %>
+		<% @pledge = Reward.where("id = :r", {r: r.id})  %>
 		<% sum += r.amount %>
 	<% end %>
-<%= sum %>	
-</p>
+Amount raised: $<%= sum %>
+<p> Percent raised: <%= (sum.to_f / @project.funding_goal.to_f) * 100 %>% </p>
+</div>
+
+	
+
 
 <div class="description">
 	<%= @project.description %> <br>

@@ -5,7 +5,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @reward = Reward.where("id = :r", {r: params[:id]})
+    @reward = Reward.where("project_id = :pr", {pr: params[:id]})
+    @funding = @project.funding_goal
   end
 
   def new
